@@ -1,10 +1,10 @@
-Purpose
+Purpose ![what-why](https://cs.adelaide.edu.au/~christoph/badges/content-what-why-brightgreen.svg)
 --------------
 
 iRate is a library to help you promote your iPhone and Mac App Store apps by prompting users to rate the app after using it for a few days. This approach is one of the best ways to get positive app reviews by targeting only regular users (who presumably like the app or they wouldn't keep using it!).
 
 
-Supported OS & SDK Versions
+Supported OS & SDK Versions ![when](https://cs.adelaide.edu.au/~christoph/badges/content-when-yellowgreen.svg)
 -----------------------------
 
 * Supported build target - iOS 6.0 / Mac OS 10.8 (Xcode 4.5, Apple LLVM compiler 4.1)
@@ -14,7 +14,7 @@ Supported OS & SDK Versions
 NOTE: 'Supported' means that the library has been tested with this version. 'Compatible' means that the library should work on this OS version (i.e. it doesn't rely on any unavailable SDK features) but is no longer being tested for compatibility and may require tweaking or bug fixes to run correctly.
 
 
-ARC Compatibility
+ARC Compatibility ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 ------------------
 
 As of version 1.7, iRate requires ARC. If you wish to use iRate in a non-ARC project, just add the -fobjc-arc compiler flag to the iRate.m class. To do this, go to the Build Phases tab in your target settings, open the Compile Sources group, double-click iRate.m in the list and type -fobjc-arc into the popover.
@@ -22,13 +22,13 @@ As of version 1.7, iRate requires ARC. If you wish to use iRate in a non-ARC pro
 If you wish to convert your whole project to ARC, comment out the #error line in iRate.m, then run the Edit > Refactor > Convert to Objective-C ARC... tool in Xcode and make sure all files that you wish to use ARC for (including iRate.m) are checked.
 
 
-Thread Safety
+Thread Safety ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 --------------
 
 iRate uses threading internally to avoid blocking the UI, but none of the iRate external interfaces are thread safe and you should not call any methods or set any properties on iRate except from the main thread.
 
 
-Installation
+Installation ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 --------------
 
 To install iRate into your app, drag the iRate.h, .m and .bundle files into your project. You can omit the .bundle if you are not interested in localised text. On iOS you will also need to add the StoreKit framework.
@@ -49,7 +49,7 @@ If you do wish to customise iRate, the best time to do this is *before* the app 
 	}
 
 
-Configuration
+Configuration ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 --------------
 
 To configure iRate, there are a number of properties of the iRate class that can alter the behaviour and appearance of iRate. These should be mostly self- explanatory, but they are documented below:
@@ -151,7 +151,7 @@ This option will cause iRate to send detailed logs to the console about the prom
 If set to YES, iRate will always display the rating prompt on launch, regardless of how long the app has been in use or whether it's the latest version. Use this to proofread your message and check your configuration is correct during testing, but disable it for the final release (defaults to NO).
 
 
-Advanced properties
+Advanced properties ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg) ![references](https://cs.adelaide.edu.au/~christoph/badges/content-references-orange.svg)
 --------------
 
 If the default iRate behaviour doesn't meet your requirements, you can implement your own by using the advanced properties, methods and delegate. The properties below let you access internal state and override it:
@@ -201,7 +201,7 @@ This (readonly) flag indicates whether the user has previously rated any version
 An object you have supplied that implements the `iRateDelegate` protocol, documented below. Use this to detect and/or override iRate's default behaviour. This defaults to the App Delegate, so if you are using your App Delegate as your iRate delegate, you don't need to set this property. 
 
 
-Methods
+Methods ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 --------------
 
 Besides configuration, iRate has the following methods:
@@ -227,7 +227,7 @@ This method will check if the app store is available, and if it is, it will disp
 This method skips the user alert and opens the application ratings page in the Mac or iPhone app store, or directly within the app, depending on which platform and OS version is running. This method does not perform any checks to verify that the machine has network access or that the app store is available. It also does not call any delegate methods. You should use this method to open the ratings page instead of the ratingsURL property, as the process for launching the app store is more complex than merely opening the URL in many cases. Note that this method depends on the `appStoreID` which is only retrieved after polling the iTunes server, so if you intend to call this method directly, you will need to set the `appStoreID` property yourself beforehand.
 
 
-Delegate methods
+Delegate methods ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 ---------------
 
 The iRateDelegate protocol provides the following methods that can be used intercept iRate events and override the default behaviour. All methods are optional.
@@ -269,7 +269,7 @@ This method is called just after iRate presents the StoreKit in-app product view
 This method is called when the user dismisses the StoreKit in-app product view controller. This is useful if you want to resume any functionality that you paused when the modal was displayed.
 
 
-Localisation
+Localisation ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 ---------------
 
 The default strings for iRate are already localised for many languages. By default, iRate will use all the localisations in the iRate.bundle even in an app that is not localised, or which is only localised to a subset of the languages that iRate supports.
@@ -295,7 +295,7 @@ The old method of overriding iRate's default strings by using individual setter 
     }
 
 
-Example Projects
+Example Projects ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 ---------------
 
 When you build and run the basic Mac or iPhone example project for the first time, it will show an alert asking you to rate the app. This is because the previewMode option is set.
@@ -303,7 +303,7 @@ When you build and run the basic Mac or iPhone example project for the first tim
 Disable the previewMode option and play with the other settings to see how the app behaves in practice.
 
 
-Advanced Example
+Advanced Example ![how](https://cs.adelaide.edu.au/~christoph/badges/content-how-green.svg)
 ---------------
 
 The advanced example demonstrates how you might implement a completely bespoke iRate interface using the iRateDelegate methods. Automatic prompting is disabled and instead the user can opt to rate the app by pressing the "Rate this app" button.
